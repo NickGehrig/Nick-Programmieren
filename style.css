@@ -1,0 +1,9 @@
+h1 { 
+    color: rgb(255, 0, 0);
+}
+h2 {
+    color: rgb(0, 26, 255);
+}
+body {
+    background: linear-gradient(45deg, white, red );
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Kreuzworträtsel mit Fragen</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .question-block {
+      margin-bottom: 15px;
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #reward {
+      display: none;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    #reward img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🐾 Kreuzworträtsel mit Fragen 🧠</h1>
+
+  <div id="questions">
+    <div class="question-block">
+      <label for="word1">1. Bellt und ist der beste Freund des Menschen?</label>
+      <input type="text" id="word1">
+    </div>
+    <div class="question-block">
+      <label for="word2">2. Miau! Welches Tier schnurrt gern?</label>
+      <input type="text" id="word2">
+    </div>
+    <div class="question-block">
+      <label for="word3">3. Kleines Nagetier mit langen Schnurrhaaren?</label>
+      <input type="text" id="word3">
+    </div>
+    <div class="question-block">
+      <label for="word4">4. Fliegt und zwitschert im Baum?</label>
+      <input type="text" id="word4">
+    </div>
+    <div class="question-block">
+      <label for="word5">5. Schwimmt im Wasser und hat Schuppen?</label>
+      <input type="text" id="word5">
+    </div>
+    <div class="question-block">
+      <label for="word6">6. Klettert gern und isst Bananen?</label>
+      <input type="text" id="word6">
+    </div>
+    <div class="question-block">
+      <label for="word7">7. Wird oft geritten?</label>
+      <input type="text" id="word7">
+    </div>
+    <div class="question-block">
+      <label for="word8">8. Groß, stark, liebt Honig?</label>
+      <input type="text" id="word8">
+    </div>
+    <div class="question-block">
+      <label for="word9">9. König der Tiere?</label>
+      <input type="text" id="word9">
+    </div>
+    <div class="question-block">
+      <label for="word10">10. Gestreiftes Raubtier?</label>
+      <input type="text" id="word10">
+    </div>
+  </div>
+
+  <button onclick="checkAnswers()">Prüfen</button>
+
+  <div id="reward">
+    <h2>Lea besste Schwester</h2>
+    <img src="https://picsum.photos/400/200" alt="Belohnung">
+    <p>Du hast alle 10 Fragen richtig beantwortet. Super gemacht!</p>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const correctAnswers = [
+        "hund", "katze", "maus", "vogel", "fisch",
+        "affe", "pferd", "bär", "löwe", "tiger"
+      ];
+
+      let allCorrect = true;
+
+      for (let i = 1; i <= 10; i++) {
+        const input = document.getElementById(`word${i}`).value.trim().toLowerCase();
+        if (input !== correctAnswers[i - 1]) {
+          allCorrect = false;
+          break;
+        }
+      }
+
+      if (allCorrect) {
+        document.getElementById("reward").style.display = "block";
+      } else {
+        alert("Leider sind nicht alle Antworten korrekt. Versuch’s nochmal!");
+      }
+    }
+  </script>
+
+</body>
+</html>
